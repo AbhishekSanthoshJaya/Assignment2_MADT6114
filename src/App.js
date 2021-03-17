@@ -5,19 +5,31 @@ function App() {
 
   const userName = useRef("");
   const password = useRef("");
-  const isRemembered = useRef(false);
+  const address = useRef("");
+  const email = useRef("");
+  const phone = useRef("");
+  const company = useRef("");
+  //const isRemembered = useRef(false);
 
-  // over kill but code for just using bot useref and use state. useRef doesnt kick rerender so using useState
+  
   const [userNameState, setUserNameState] = useState("")
   const [passwordState, setPasswordState] = useState("")
-  const [isRememberedState, setIsRememberedState] = useState(false)
+  const [addressState, setAddressState] = useState("");
+  const [emailState, setEmailState] = useState("");
+  const [phoneState, setphoneState] = useState("");
+  const [companyState, setCompanyState] = useState("");
+  //const [isRememberedState, setIsRememberedState] = useState(false)
   const [isFormDataShown, setisFormDataShown] = useState(false);
 
   const clickHandler = (e) => {
     e.preventDefault();
     setUserNameState(userName.current.value);
     setPasswordState(password.current.value);
-    setIsRememberedState(isRemembered.current.checked)
+    setAddressState(address.current.value);
+    setphoneState(phone.current.value);
+    setEmailState(email.current.value);
+    setCompanyState(company.current.value);
+    //setIsRememberedState(isRemembered.current.checked)
     setisFormDataShown(true);
   }
   return (
@@ -33,21 +45,36 @@ function App() {
             <input type="password" id="password" ref={password}></input>
           </div>
           <div className="form-control">
-            <label htmlFor="remember">Remember</label>
-            <input type="checkbox" id="remember" ref={isRemembered}></input>
+            <label htmlFor="address">Address:</label>
+            <input type="text" id="address" ref={address}></input>
+          </div>
+          <div className="form-control">
+            <label htmlFor="phone">Phone:</label>
+            <input type="text" id="phone" ref={phone}></input>
+          </div>
+          <div className="form-control">
+            <label htmlFor="email">Email:</label>
+            <input type="text" id="email" ref={email}></input>
+          </div>
+          <div className="form-control">
+            <label htmlFor="company">Company:</label>
+            <input type="text" id="company" ref={company}></input>
           </div>
           <button type="button" onClick={clickHandler}>
-            Login
+            Register
           </button>
         </form>
       </div>
 
       {isFormDataShown && (
         <div className="container">
-          <h4> You submitted following data:</h4>
+          <h4> Registration Successful!</h4>
           <p> Username: {userNameState}</p>
           <p> Password: {passwordState}</p>
-          <p> Your data is {!isRememberedState && "not"} remembered.</p>
+          <p> Address: {addressState}</p>
+          <p> Email: {emailState}</p>
+          <p> Phone: {phoneState}</p>
+          <p> Company: {companyState}</p>
         </div>
       )}
     </>
