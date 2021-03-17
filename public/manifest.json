@@ -1,6 +1,9 @@
 {
   "short_name": "React App",
   "name": "Create React App Sample",
+  "scripts": {
+    "predeploy": "yarn run build",
+		"deploy": "gh-pages -d build" },
   "homepage": "https://abhisheksanthoshjaya.github.io/Assignment2_MADT6114/",
   "icons": [
     {
