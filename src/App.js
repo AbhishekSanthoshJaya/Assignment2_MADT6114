@@ -11,7 +11,6 @@ function App() {
   const company = useRef("");
   //const isRemembered = useRef(false);
 
-  
   const [userNameState, setUserNameState] = useState("")
   const [passwordState, setPasswordState] = useState("")
   const [addressState, setAddressState] = useState("");
